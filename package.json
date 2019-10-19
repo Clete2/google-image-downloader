@@ -1,5 +1,6 @@
 {
   "license": "MIT",
+  "sideEffects": false,
   "scripts": {
     "start": "yarn build && node dist/main.js",
     "build:production": "webpack --mode=production",
