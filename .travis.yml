@@ -22,5 +22,5 @@ deploy:
   on:
     repo: Clete2/google-image-downloader
     condition: true
-  if: tag IS present
+    tags: true
 cache: yarn
