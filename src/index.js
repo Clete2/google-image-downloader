@@ -11,7 +11,7 @@ try {
 }
 
 const input = fs.readFileSync('input.txt').toString('utf-8');
-const inputLines = input.split('\n');
+const inputLines = input.split(/\r?\n/);
 
 const promises = inputLines.map(async (line) => search(line));
 
