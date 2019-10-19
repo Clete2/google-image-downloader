@@ -15,6 +15,6 @@ deploy:
   - dist/main.js
   - dist/windows.exe
   on:
-    repo: Clete2/Mailcow-API-Scripts
+    repo: Clete2/google-image-downloader
     condition: true
 cache: yarn
