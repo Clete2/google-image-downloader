@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- node
+jobs:
+  include:
+  - stage: build
+    script: yarn build:production && yarn build:mac && yarn build:linux && yarn build:windows
+deploy:
+  provider: releases
+  api_key:
+    secure: XvOvUS9dwIFKLwWdwGjkGHOcOPNvBSrQRVOM40bPGu98QzgGz2u4JaNzW/aAvPMzgXrbKg8Jqr5js7VHd6CTwW3oLZLH3Bk9SxP1JBRAOrmKLROaBhoFXigpo/DOIGTbozKAgToxzpungZrERF8AHK3kEsNySNQGNKeW+GmuXkiOCDt8xq5K0pIQz6DdllmKrCWDCRn+j3U4IkWVA+8zEwstjW8VuD25hsq1f4DrLBoOrTBnz4RBaebfnDm47rjHlnc9xrTPocKZkD9tFAsNCmhb5iw/5NqrVCElE15ViP5HRCswOLfFj8NhDsYBlB49seNG7sshiDzCV/ZWH3eFDe6UhU5f8r6LUz15ZuTc/py+95pX2CIOxd6h3CHhb2Um79o5PIQIJqYznMBROak5Mg4ziQ9kYv+S0jJYtf0xEsbkCsruKeymHbJCLzxfDIQhYavYJBK7fI611pwcxaffSJxocY1er9YXNKWTzTTI17CX33UNlkBcVz/grsyXiNR3/oh8jAYNC3oBO+11zlSZqxHHvjDh2tppTS8/5R0ZDD9e6WdOeq49nZgbm6eQ6kD6KTJZVOy9GZztnA5hPN4VBIckqyQCxuN5+LBp4eTzCtSKRJkVENsFlvHiHFpwHq3VZ5mXBxcCXx9kvMREUuHtkxIvBJEKX5VW3tp1FSrSYYQ=
+  file:
+  - dist/linux
+  - dist/mac
+  - dist/main.js
+  - dist/windows.exe
+  on:
+    repo: Clete2/Mailcow-API-Scripts
+    condition: true
+cache: yarn
