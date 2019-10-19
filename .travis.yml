@@ -20,7 +20,5 @@ deploy:
   - dist/main.js
   - dist/windows.exe
   on:
-    repo: Clete2/google-image-downloader
-    condition: true
     tags: true
 cache: yarn
