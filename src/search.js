@@ -10,21 +10,35 @@ export default async (searchQuery) => {
 
   const searchResults = await gis(searchQuery);
 
-  const imagePromises = searchResults.slice(0, 5).map(async (searchResult, i) => {
+  let imagesGrabbed = 0;
+  let i = 0;
+
+  while (imagesGrabbed < 5 && i < searchResults.length) {
     const {
       url,
-    } = searchResult;
+    } = searchResults[i];
+
+    i += 1;
+
+    // eslint-disable-next-line no-await-in-loop
     const [error, response] = await to(fetch(url));
 
     if (error) {
       console.log(`Query '${searchQuery}' failed to get ${url} with error ${JSON.stringify(error)}`);
-      return;
+      // eslint-disable-next-line no-continue
+      continue;
     }
 
     const extension = mime.getExtension(response.headers.get('content-type')) || 'jpeg';
-    const file = fs.createWriteStream(`output/${searchQuery} - ${i + 1}.${extension}`);
-    response.body.pipe(file);
-  });
 
-  return Promise.all(imagePromises);
+    if (extension === 'html') {
+      // eslint-disable-next-line no-continue
+      continue;
+    }
+
+    const file = fs.createWriteStream(`output/${searchQuery} - ${imagesGrabbed + 1}.${extension}`);
+    response.body.pipe(file);
+
+    imagesGrabbed += 1;
+  }
 };
