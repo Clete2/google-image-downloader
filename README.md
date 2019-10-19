@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Clete2/google-image-downloader.svg?branch=master)](https://travis-ci.org/Clete2/google-image-downloader)
+
 # Overview
 Downloads 5 images from Google for each line in a text file.
 
