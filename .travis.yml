@@ -7,6 +7,7 @@ jobs:
     script: yarn build:production && yarn build:mac && yarn build:linux && yarn build:windows
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: HpUIU0Yh8+OB1OafMkXLW/u0PEexAGmC7WareODgona4PcNdbvwPBC15efOQ0Ky21GfZ4/XFbzEI9NASTeTHMdZttEqd0VWDYwhlOnEz1eJ/n1j39YyI37orllYrf90aGaMYRj99Tzf9YSV8/dl/mTIBHYrp1pR+HBOXRPNA+gsViwuO6OeTD+dBlhYPh0kqkneMycB6KUvZokfEQ62skWvaYxMKAIfphdt4VUr4gduxYEAKaEgK8QMONgj0jMciJk75saryeXlyXTH2Nb+1FOTLwPtKZwXTWkqvkKQy4N+X6ssEO38oSVrdKUhWG6z5KvpdHDijvioyvpi/4EpX2aWgPjNwIZBPlTH60yI8y6deN7WCpefBSHszEODIlnhn0otu7ycI30o9nurKOLO2cx/bWAOa3yGCKZZIWdWEzPKRhXsYabNvgV4G+z1iBbhmc8WdbS8EteJNuERLGfwtmzccRLz6WOxN9JWAtEg0qr8QP14v/4pEnEbmh6ZTo7Pgp1FBWTbExzXAoyQkjbd7U6+4R0gvWIRqEx9bXIrIXZrjd4tg04XzuRivvUpd6QCnA+FcR3d6g/5p2C1IuoMm97briCaxhPfJjMRk9F8KvIW5800mylkkqxvcwJCjNaiRAFL4ROMpvCX8GXZwvJbvL/hPDhwWuvf2OL3cOosZs38=
   file:
