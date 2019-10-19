@@ -5,6 +5,10 @@ jobs:
   include:
   - stage: build
     script: yarn build:production && yarn build:mac && yarn build:linux && yarn build:windows
+before_deploy:
+  - zip dist/linux.zip dist/linux
+  - zip dist/mac.zip dist/mac
+  - zip dist/windows.zip dist/windows.exe
 deploy:
   provider: releases
   skip_cleanup: true
