@@ -1,5 +1,6 @@
 import fs from 'fs';
 import rimraf from 'rimraf';
+import sleep from 'sleep-promise';
 import search from './search';
 
 rimraf.sync('output');
